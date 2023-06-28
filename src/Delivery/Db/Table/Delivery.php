@@ -28,8 +28,8 @@
 namespace Delivery\Db\Table;
 use VuFind\Db\Table\Gateway;
 use VuFind\Db\Row\RowGateway;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\Sql\Expression;
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Db\Sql\Expression;
 use VuFind\Exception\LoginRequired as LoginRequiredException;
 
 /**

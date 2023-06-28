@@ -32,9 +32,9 @@ use Delivery\ConfigurationManager;
 use VuFind\AjaxHandler\AbstractBase;
 use VuFind\Config\PluginManager as ConfigManager;
 use VuFind\Search\Results\PluginManager as ResultsManager;
-use Zend\Http\PhpEnvironment\Request;
-use Zend\Mvc\Controller\Plugin\Params;
-use Zend\Stdlib\Parameters;
+use Laminas\Http\PhpEnvironment\Request;
+use Laminas\Mvc\Controller\Plugin\Params;
+use Laminas\Stdlib\Parameters;
 
 /**
  * "Get Record Details" AJAX handler

@@ -27,7 +27,7 @@
  */
 namespace Delivery\Controller;
 
-use Zend\ServiceManager\ServiceManager;
+use Laminas\ServiceManager\ServiceManager;
 
 /**
  * Factory for controllers.

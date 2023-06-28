@@ -8,7 +8,7 @@ use Delivery\AvailabilityHelper;
 use Delivery\ConfigurationManager;
 use VuFind\Config\PluginManager as ConfigManager;
 
-class AvailabilityChecker extends \Zend\View\Helper\AbstractHelper
+class AvailabilityChecker extends \Laminas\View\Helper\AbstractHelper
 {
 
     protected $configManager;
