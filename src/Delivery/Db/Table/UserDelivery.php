@@ -59,6 +59,12 @@ class UserDelivery extends Gateway
         parent::__construct($adapter, $tm, $cfg, $rowObj, $table);
     }
 
+    /**
+     * Get user entry.
+     *
+     * @param $user_id
+     * @return null
+     */
     public function get($user_id)
     {
         if (!$user_id) {
@@ -71,6 +77,13 @@ class UserDelivery extends Gateway
         return $result;
     }
 
+    /**
+     * Create entry for user id.
+     *
+     * @param $user_id
+     * @param $email
+     * @return mixed
+     */
     public function createRowForUserId($user_id, $email)
     {
         $row = $this->createRow();
@@ -80,6 +93,13 @@ class UserDelivery extends Gateway
         return $row;
     }
 
+    /**
+     * Update user email.
+     *
+     * @param $id
+     * @param $email
+     * @return mixed
+     */
     public function updateEmail($id, $email)
     {
         $deliveryUser = $this->select(['id' => $id])->current();

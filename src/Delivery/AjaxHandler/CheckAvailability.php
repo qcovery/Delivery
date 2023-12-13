@@ -1,6 +1,6 @@
 <?php
 /**
- * "Get Record Details" AJAX handler
+ * CheckAvailability AJAX handler
  *
  * PHP version 7
  *
@@ -37,7 +37,7 @@ use Laminas\Mvc\Controller\Plugin\Params;
 use Laminas\Stdlib\Parameters;
 
 /**
- * "Get Record Details" AJAX handler
+ * CheckAvailability AJAX handler
  *
  * Get record for integrated list view.
  *

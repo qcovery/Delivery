@@ -1,6 +1,6 @@
 <?php
 /**
- * Factory for GetRecordDetails AJAX handler.
+ * Factory for CheckAvailability AJAX handler.
  *
  * PHP version 7
  *
@@ -30,7 +30,7 @@ namespace Delivery\AjaxHandler;
 use Interop\Container\ContainerInterface;
 
 /**
- * Factory for GetRecordDetails AJAX handler.
+ * Factory for CheckAvailability AJAX handler.
  *
  * @category VuFind
  * @package  AJAX
