@@ -173,11 +173,22 @@ class DeliveryAuthenticator extends ILSAuthenticator
         return $this->user;
     }
 
+    /**
+     * Get configured Delivery domains.
+     *
+     * @return array
+     */
     public function getDeliveryDomains()
     {
         return $this->configurationManager->getDeliveryDomains();
     }
 
+    /**
+     * Get configured template parameters.
+     *
+     * @param $deliveryDomain
+     * @return array
+     */
     public function getTemplateParams($deliveryDomain)
     {
         $this->configurationManager->setConfigurations($deliveryDomain);

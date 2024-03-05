@@ -27,8 +27,8 @@
  */
 namespace Delivery\Controller;
 
-# use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+# use Laminas\ServiceManager\ServiceLocatorAwareInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use VuFind\Controller\AbstractBase;
 use Delivery\AvailabilityHelper;
 use Delivery\ConfigurationManager;

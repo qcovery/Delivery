@@ -28,8 +28,8 @@
 namespace Delivery\Db\Table;
 use VuFind\Db\Table\Gateway;
 use VuFind\Db\Row\RowGateway;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\Sql\Expression;
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Db\Sql\Expression;
 use VuFind\Exception\LoginRequired as LoginRequiredException;
 
 /**
@@ -58,6 +58,12 @@ class Delivery extends Gateway
         parent::__construct($adapter, $tm, $cfg, $rowObj, $table);
     }
 
+    /**
+     * Get delivery list filtered by user id.
+     *
+     * @param $user_delivery_id
+     * @return mixed
+     */
     public function getDeliveryList($user_delivery_id)
     {
         $callback = function ($select) use ($user_delivery_id) {
@@ -74,6 +80,11 @@ class Delivery extends Gateway
         return $resource->select($callback)->toArray();
     }
 
+    /**
+     * Get complete list.
+     *
+     * @return mixed
+     */
     public function getCompleteList()
     {
         $callback = function ($select) use ($user_delivery_id) {
@@ -89,6 +100,14 @@ class Delivery extends Gateway
         return $resource->select($callback)->toArray();
     }
 
+    /**
+     * Create entry for user id and order id.
+     *
+     * @param $user_delivery_id
+     * @param $order_id
+     * @param $data
+     * @return false
+     */
     public function createRowForUserDeliveryId($user_delivery_id, $order_id, $data)
     {
         if (empty($data['record_id']) || empty($user_delivery_id)) {

@@ -27,7 +27,7 @@
  */
 namespace Delivery\Driver;
 
-use Zend\XmlRpc;
+use Laminas\XmlRpc;
 
 class MyBib implements DriverInterface {
 

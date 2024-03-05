@@ -27,7 +27,7 @@
  */
 namespace Delivery\Db\Row;
 use VuFind\Db\Row\RowGateway;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 use VuFind\Exception\LoginRequired as LoginRequiredException;
 
 /**

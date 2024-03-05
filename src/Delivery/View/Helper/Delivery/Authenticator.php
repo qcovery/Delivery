@@ -38,7 +38,7 @@ use Delivery\Auth\DeliveryAuthenticator;
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development Wiki
  */
-class Authenticator extends \Zend\View\Helper\AbstractHelper
+class Authenticator extends \Laminas\View\Helper\AbstractHelper
 {
     protected $authenticator;
 
