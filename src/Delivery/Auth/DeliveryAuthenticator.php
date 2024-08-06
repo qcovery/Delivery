@@ -30,7 +30,7 @@ namespace Delivery\Auth;
 use VuFind\Auth\ILSAuthenticator;
 use VuFind\Auth\Manager;
 use VuFind\Config\PluginManager as ConfigManager;
-use PAIAplus\ILS\Connection as ILSConnection;
+use VuFind\ILS\Connection as ILSConnection;
 use Delivery\ConfigurationManager;
 
 /**
