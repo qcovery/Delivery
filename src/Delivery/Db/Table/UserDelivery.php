@@ -30,6 +30,7 @@ use VuFind\Db\Table\Gateway;
 use VuFind\Db\Row\RowGateway;
 use Laminas\Db\Adapter\Adapter;
 use VuFind\Exception\LoginRequired as LoginRequiredException;
+use VuFind\Db\Table\PluginManager;
 
 /**
  * Table Definition for user_delivery

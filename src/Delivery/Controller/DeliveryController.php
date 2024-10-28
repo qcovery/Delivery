@@ -73,7 +73,7 @@ class DeliveryController extends AbstractBase
      */
     public function getTable($table)
     {
-        return $this->serviceLocator->get('Delivery\Db\Table\PluginManager')->get($table);
+        return $this->serviceLocator->get($table);
     }
     
     private function authenticate($deliveryDomain, $asAdmin = false)

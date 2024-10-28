@@ -32,6 +32,7 @@ use VuFind\Auth\Manager;
 use VuFind\Config\PluginManager as ConfigManager;
 use VuFind\ILS\Connection as ILSConnection;
 use Delivery\ConfigurationManager;
+use Delivery\Db\Table\UserDelivery;
 
 /**
  * Class for managing ILS-specific authentication.
@@ -58,7 +59,7 @@ class DeliveryAuthenticator extends ILSAuthenticator
      * @param ILSConnection $catalog ILS connection
      */
     public function __construct(Manager $auth, ILSConnection $catalog,
-        ConfigManager $configManager, $table)
+        ConfigManager $configManager, UserDelivery $table)
     {
         $this->configurationManager = new ConfigurationManager($configManager);
         $this->setTable($table);

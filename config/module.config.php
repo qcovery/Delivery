@@ -21,8 +21,6 @@ $config = [
             'Delivery\Db\Row\UserDelivery' => 'VuFind\Db\Row\RowGatewayFactory',
             'Delivery\Db\Table\Delivery' => 'VuFind\Db\Table\GatewayFactory',
             'Delivery\Db\Table\UserDelivery' => 'VuFind\Db\Table\GatewayFactory',
-            'Delivery\Driver\Dod' => 'Delivery\Driver\DriverFactory',
-            'Delivery\Driver\MyBib' => 'Delivery\Driver\DriverFactory',
         ],
         'aliases' => [
             'VuFind\ILSAuthenticator' => 'Delivery\Auth\DeliveryAuthenticator',
@@ -31,21 +29,29 @@ $config = [
             'mybib' => 'Delivery\Driver\MyBib',
         ],
     ],
-    'db_row' => [
-        'service_manager' => [
-            'aliases' => [
-                'delivery' => 'Delivery\Db\Row\Delivery',
-                'userdelivery' => 'Delivery\Db\Row\UserDelivery',
-            ]
-        ]
-    ],
-    'db_table' => [
-        'service_manager' => [
-            'aliases' => [
-                'delivery' => 'Delivery\Db\Table\Delivery',
-                'userdelivery' => 'Delivery\Db\Table\UserDelivery',
-            ]
-        ]
+    'vufind' => [
+        'plugin_managers' => [
+            'db_row' => [
+                'factories' => [
+                    'Delivery\Db\Row\Delivery' => 'VuFind\Db\Row\RowGatewayFactory',
+                    'Delivery\Db\Row\UserDelivery' => 'VuFind\Db\Row\RowGatewayFactory',
+                ],
+                'aliases' => [
+                    'delivery' => 'Delivery\Db\Row\Delivery',
+                    'userdelivery' => 'Delivery\Db\Row\UserDelivery',
+                ],
+            ],
+            'db_table' => [
+                'factories' => [
+                    'Delivery\Db\Table\Delivery' => 'VuFind\Db\Table\GatewayFactory',
+                    'Delivery\Db\Table\UserDelivery' => 'VuFind\Db\Table\GatewayFactory',
+                ],
+                'aliases' => [
+                    'delivery' => 'Delivery\Db\Table\Delivery',
+                    'userdelivery' => 'Delivery\Db\Table\UserDelivery',
+                ],
+            ],
+        ],
     ],
 ];
 

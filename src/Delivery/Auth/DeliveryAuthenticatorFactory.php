@@ -71,7 +71,7 @@ class DeliveryAuthenticatorFactory implements FactoryInterface
             $auth = $container->get('VuFind\Auth\Manager');
             $catalog = $container->get('VuFind\ILS\Connection');
             $config = $container->get('VuFind\Config\PluginManager');
-            $table = $container->get('Delivery\Db\Table\PluginManager')->get('userDelivery');
+            $table = $container->get('Delivery\Db\Table\UserDelivery');
             $wrapped = new $requestedName($auth, $catalog, $config, $table);
             
             // Indicate that initialization is complete to avoid reinitialization:

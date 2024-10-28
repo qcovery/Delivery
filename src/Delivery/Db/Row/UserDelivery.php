@@ -40,7 +40,7 @@ use VuFind\Exception\LoginRequired as LoginRequiredException;
  * @link     https://vufind.org Main Page
  */
 class UserDelivery extends RowGateway implements \VuFind\Db\Table\DbTableAwareInterface,
-    \ZfcRbac\Identity\IdentityInterface
+    \LmcRbacMvc\Identity\IdentityInterface
 {
     use \VuFind\Db\Table\DbTableAwareTrait;
     

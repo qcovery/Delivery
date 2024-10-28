@@ -13,8 +13,6 @@
  */
 namespace Delivery;
 
-use Delivery\Driver\PluginManager;
-
 class DataHandler {
 
     protected $pluginConfig;
