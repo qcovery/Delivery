@@ -144,7 +144,7 @@ class DeliveryController extends AbstractBase
             $orderDataConfig = $this->configurationManager->getOrderDataConfig();
             $pluginConfig =  $this->configurationManager->getPluginConfig();
             $mainConfig = $this->configurationManager->getMainConfig();
-            $dataHandler = new DataHandler($this->serviceLocator->get('Delivery\Driver\PluginManager'), 
+            $dataHandler = new DataHandler($this->serviceLocator->get(\VuFind\Resolver\Driver\PluginManager::class),
                                            $this->params(), $orderDataConfig, $pluginConfig);
             if (!empty($id)) {
                 $driver = $this->getRecordLoader()->load($id, $searchClassId);
