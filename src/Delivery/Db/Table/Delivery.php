@@ -52,7 +52,7 @@ class Delivery extends Gateway
      * @param RowGateway    $rowObj  Row prototype object (null for default)
      * @param string        $table   Name of database table to interface with
      */
-    public function __construct(Adapter $adapter, PluginManager $tm, $cfg,
+    public function __construct(Adapter $adapter, \VuFind\Db\Table\PluginManager $tm, $cfg,
         RowGateway $rowObj, $table = 'delivery'
     ) {
         parent::__construct($adapter, $tm, $cfg, $rowObj, $table);

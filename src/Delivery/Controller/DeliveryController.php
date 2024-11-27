@@ -73,7 +73,8 @@ class DeliveryController extends AbstractBase
      */
     public function getTable($table)
     {
-        return $this->serviceLocator->get($table);
+        return $this->serviceLocator->get(\VuFind\Db\Table\PluginManager::class)
+            ->get($table);
     }
     
     private function authenticate($deliveryDomain, $asAdmin = false)
@@ -144,7 +145,7 @@ class DeliveryController extends AbstractBase
             $orderDataConfig = $this->configurationManager->getOrderDataConfig();
             $pluginConfig =  $this->configurationManager->getPluginConfig();
             $mainConfig = $this->configurationManager->getMainConfig();
-            $dataHandler = new DataHandler($this->serviceLocator->get(\VuFind\Resolver\Driver\PluginManager::class),
+            $dataHandler = new DataHandler($this->serviceLocator->get('Delivery\DriverPluginManager'),
                                            $this->params(), $orderDataConfig, $pluginConfig);
             if (!empty($id)) {
                 $driver = $this->getRecordLoader()->load($id, $searchClassId);

@@ -13,6 +13,8 @@
  */
 namespace Delivery;
 
+use Delivery\Driver\PluginManager;
+
 class DataHandler {
 
     protected $pluginConfig;
@@ -41,7 +43,7 @@ class DataHandler {
 
     protected $format;
 
-    public function __construct(\VuFind\Resolver\Driver\PluginManager $driverManager, $params, $orderDataConfig, $pluginConfig)
+    public function __construct(PluginManager $driverManager, $params, $orderDataConfig, $pluginConfig)
     {
         $this->pluginConfig = $pluginConfig;
         $this->dataFields = $orderDataConfig;

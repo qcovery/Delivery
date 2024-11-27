@@ -21,12 +21,12 @@ $config = [
             'Delivery\Db\Row\UserDelivery' => 'VuFind\Db\Row\RowGatewayFactory',
             'Delivery\Db\Table\Delivery' => 'VuFind\Db\Table\GatewayFactory',
             'Delivery\Db\Table\UserDelivery' => 'VuFind\Db\Table\GatewayFactory',
+            'Delivery\Driver\PluginManager' => 'VuFind\ServiceManager\AbstractPluginManagerFactory',
         ],
         'aliases' => [
             'VuFind\ILSAuthenticator' => 'Delivery\Auth\DeliveryAuthenticator',
             'checkAvailability' => 'Delivery\AjaxHandler\CheckAvailability',
-            'dod' => 'Delivery\Driver\Dod',
-            'mybib' => 'Delivery\Driver\MyBib',
+            'Delivery\DriverPluginManager' => 'Delivery\Driver\PluginManager',
         ],
     ],
     'vufind' => [
