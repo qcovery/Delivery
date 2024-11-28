@@ -222,13 +222,11 @@ class DeliveryController extends AbstractBase
                             'title' => $dataHandler->getFormTitle('info'),
                             'fields' => $dataHandler->getFormData('info')];
                 $view->forms = $forms;
-/*
                 $view->formTitle = $dataHandler->getFormTitle('form');
                 $view->formFields = $dataHandler->getFormData('form');
                 $view->checkboxFields = $dataHandler->getFormData('checkbox');
                 $view->infoTitle = $dataHandler->getFormTitle('info');
                 $view->infoFields = $dataHandler->getFormData('info');
-*/
             } elseif (!empty($presetFormat)) {
                 $forms = [];
                 $forms[] = ['type' => 'input',
