@@ -171,7 +171,7 @@ class DeliveryController extends AbstractBase
 
             if (!empty($id)) {
                 $availabilityConfig = $this->configurationManager->getAvailabilityConfig();
-	        $availabilityHelper = new AvailabilityHelper($availabilityConfig['checkparent']);
+	            $availabilityHelper = new AvailabilityHelper($availabilityConfig['default']);
                 $availabilityHelper->setSolrDriver($driver, $mainConfig['delivery_marc_yaml']);
                 if ($parentId = $availabilityHelper->getParentId()) {
                     $parentDriver = $this->getRecordLoader()->load($parentId, DEFAULT_SEARCH_BACKEND);
