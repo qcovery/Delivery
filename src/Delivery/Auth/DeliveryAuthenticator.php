@@ -27,8 +27,8 @@
  */
 namespace Delivery\Auth;
 
+use Closure;
 use VuFind\Auth\ILSAuthenticator;
-use VuFind\Auth\Manager;
 use VuFind\Config\PluginManager as ConfigManager;
 use VuFind\ILS\Connection as ILSConnection;
 use Delivery\ConfigurationManager;
@@ -55,15 +55,22 @@ class DeliveryAuthenticator extends ILSAuthenticator
     /**
      * Constructor
      *
-     * @param Manager       $auth    Auth manager
+     * @param Closure $authManagerCallback Auth manager callback
+     * @param Closure $cipherFactory BlockCipher object factory (takes algorithm as argument)
      * @param ILSConnection $catalog ILS connection
+     * @param ConfigManager $configManager Configuration manager
+     * @param UserDelivery $table User database table for delivery module
      */
-    public function __construct(Manager $auth, ILSConnection $catalog,
-        ConfigManager $configManager, UserDelivery $table)
-    {
+    public function __construct(
+        protected Closure $authManagerCallback,
+        protected Closure $cipherFactory,
+        protected ILSConnection $catalog,
+        ConfigManager $configManager,
+        UserDelivery $table
+    ) {
         $this->configurationManager = new ConfigurationManager($configManager);
         $this->setTable($table);
-        parent::__construct($auth, $catalog);
+        parent::__construct($this->authManagerCallback, $this->cipherFactory, $catalog, null, $configManager->get('config'));
     }
 
     /**
@@ -126,7 +133,7 @@ class DeliveryAuthenticator extends ILSAuthenticator
      */
     public function authenticate($deliveryDomain = 'main', $asAdmin = false)
     {
-        if (!$user = $this->auth->isLoggedIn()) {
+        if (!$user = $this->getAuthManager()->getUserObject()) {
             return 'not_logged_in';
         }
 
