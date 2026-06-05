@@ -76,8 +76,6 @@
 <?php endif; ?>
 </div>
 
-<div class="<?=$this->layoutClass('sidebar')?>">
-    <?=$this->context($this)->renderInContext("myresearch/menu.phtml", ['active' => 'delivery' . $this->domain])?>
+<div class="<?=$this->layoutClass('sidebar')?>" id="myresearch-sidebar" role="navigation" aria-label="<?=$this->transEsc('account_menu_label')?>">
+    <?=$this->accountMenu()->render('delivery' . $this->domain)?>
 </div>
-
-
