@@ -63,7 +63,7 @@ class AvailabilityHelper {
     public function getParentId() 
     {
         $format = array_shift(array_shift($this->getMarcData('Format')));
-        if (in_array($format, $this->availabilityConfig['formats'])) {
+        if (isset($this->availabilityConfig['formats']) && in_array($format, $this->availabilityConfig['formats'])) {
             $articleData = $this->getMarcData('DeliveryDataArticle');
             foreach ($articleData as $articleDate) {
                 if (!empty($articleDate['ppn'])) {
