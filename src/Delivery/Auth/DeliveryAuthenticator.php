@@ -56,21 +56,19 @@ class DeliveryAuthenticator extends ILSAuthenticator
      * Constructor
      *
      * @param Closure $authManagerCallback Auth manager callback
-     * @param Closure $cipherFactory BlockCipher object factory (takes algorithm as argument)
      * @param ILSConnection $catalog ILS connection
      * @param ConfigManager $configManager Configuration manager
      * @param UserDelivery $table User database table for delivery module
      */
     public function __construct(
-        protected Closure $authManagerCallback,
-        protected Closure $cipherFactory,
-        protected ILSConnection $catalog,
+        Closure $authManagerCallback,
+        ILSConnection $catalog,
         ConfigManager $configManager,
         UserDelivery $table
     ) {
         $this->configurationManager = new ConfigurationManager($configManager);
         $this->setTable($table);
-        parent::__construct($this->authManagerCallback, $this->cipherFactory, $catalog, null, $configManager->get('config'));
+        parent::__construct($authManagerCallback, $catalog, null, $configManager->get('config'));
     }
 
     /**

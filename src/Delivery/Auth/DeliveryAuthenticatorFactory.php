@@ -30,7 +30,6 @@ namespace Delivery\Auth;
 use Closure;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
-use VuFind\Crypt\BlockCipher;
 
 /**
  * ILS Authenticator factory.
@@ -69,12 +68,6 @@ class DeliveryAuthenticatorFactory implements FactoryInterface
             Closure::fromCallable(
                 function () use ($container) {
                     return $container->get(\VuFind\Auth\Manager::class);
-                }
-            ),
-            // Use a callback to build BlockCipher objects:
-            Closure::fromCallable(
-                function (string $algo) use ($container) {
-                    return $container->get(BlockCipher::class)->setAlgorithm($algo);
                 }
             ),
             $container->get('VuFind\ILS\Connection'),
